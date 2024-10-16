@@ -327,7 +327,7 @@ const EscalaNewsApp = () => {
         <Container
           maxWidth="sm"
           sx={{
-            backgroundColor: "rgba(255, 255, 255, 0.5)",
+            backgroundColor: "rgba(255, 255, 255, 0.7)",
             borderRadius: 4,
             padding: 4,
           }}
