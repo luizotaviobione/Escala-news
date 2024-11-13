@@ -17,7 +17,8 @@ import {
   DialogActions,
   FormHelperText,
 } from "@mui/material";
-import logo1 from "./assets/logo_maria_lucinda.png";
+// import logo1 from "./assets/logo_maria_lucinda.png";
+import logo1 from "./assets/logo.png";
 import logo2 from "./assets/logo_upa4.png"; // Caminho para a segunda logo
 import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
@@ -80,7 +81,9 @@ const EscalaNewsApp = () => {
 
   const [openDialog, setOpenDialog] = useState(false);
   const [calculoResultado, setCalculoResultado] = useState(null);
-  const [messageResultado, setMessageResultado] = useState(null);
+  const [tituloResultado, setTituloResultado] = useState(null);
+  const [conteudoResultado, setConteudoResultado] = useState(null);
+  const [conteudoSubtitleResultado, setConteudoSubtitleResultado] = useState(null);
   const [colorResultado, setColorResultado] = useState(null);
   const [colorType, setColorType] = useState(null);
 
@@ -252,37 +255,65 @@ const EscalaNewsApp = () => {
       getValorResposta6(resposta6) +
       getValorResposta7(resposta7);
 
-      console.log("valor da soma: " + getValorResposta1(resposta1) +"+"+
-      getValorResposta2(resposta2) + "+"+
-      getValorResposta3(resposta3) +"+"+
-      getValorResposta4(resposta4) +"+"+
-      getValorResposta5(resposta5) +"+"+
-      getValorResposta6(resposta6) +"+"+
+    console.log("valor da soma: " + getValorResposta1(resposta1) + "+" +
+      getValorResposta2(resposta2) + "+" +
+      getValorResposta3(resposta3) + "+" +
+      getValorResposta4(resposta4) + "+" +
+      getValorResposta5(resposta5) + "+" +
+      getValorResposta6(resposta6) + "+" +
       getValorResposta7(resposta7));
-    var message = "";
+    var titulo = "";
+    var conteudo = "";
+    var conteudoSubtitle = "";
+
     var color = "";
     var colorType = "";
-    if (resultado === 0 || resultado === 1) {
-      message = "Reavaliar a cada 6 horas";
+    // if (resultado === 0 || resultado === 1) {
+    //   titulo = "Reavaliar a cada 6 horas";
+    //   color = "#4caf50";
+    //   colorType = "success";
+    // } else if (resultado === 2) {
+    //   titulo =
+    //     "Reavaliar a cada 4 horas (comunicar enfermeiro, comunicar médico)";
+    //   color = "#ff9800";
+    //   colorType = "warning";
+    // } else if (resultado === 3 || resultado === 4) {
+    //   titulo =
+    //     "Reavaliar a cada 2 horas (comunicar enfermeiro e acionar o médico)";
+    //   color = "orange";
+    //   colorType = "warning";
+    // } else if (resultado >= 5) {
+    //   titulo = "INTERVENÇÕES IMEDIATAS, indicação de transfêrencia para UTI";
+    //   color = "#ff1300";
+    //   colorType = "danger";
+    // }
+
+     if (resultado <=4 ) {
+      titulo = "Paciente com BAIXO risco de deterioração clínica";
+      conteudo = "Deve ser avaliado por profissional de enfermagem com habilidades para decidir se há necessidade de aumentar a frequência do monitoramento e/ou escalonamento de cuidados clínicos."
+      conteudoSubtitle = "☞ Monitorar, no mínimo, a cada 4-6 horas <br/> ☞ Avaliação pelo profissional de enfermagem para decidir mudança na frequência do monitoramento ou escala de cuidado"
       color = "#4caf50";
       colorType = "success";
-    } else if (resultado === 2) {
-      message =
-        "Reavaliar a cada 4 horas (comunicar enfermeiro, comunicar médico)";
-      color = "#ff9800";
-      colorType = "warning";
-    } else if (resultado === 3 || resultado === 4) {
-      message =
-        "Reavaliar a cada 2 horas (comunicar enfermeiro e acionar o médico)";
+    } else if (resultado === 5 || resultado === 6 ) {
+      titulo =
+        "Paciente com MODERADO risco de deterioração clínica";
+      conteudo ="Avaliação URGENTE por um clínico qualificado com competência na avaliação de doenças agudas"
+      conteudoSubtitle = "☞ Monitorar, no mínimo, de 1/1 hora <br/> ☞ Revisão urgente por médico para decidir mudança na frequência do monitoramento clínico ou escala de cuidado"
       color = "orange";
       colorType = "warning";
-    } else if (resultado >= 5) {
-      message = "INTERVENÇÕES IMEDIATAS, indicação de transfêrencia para UTI";
+    } else if (resultado >= 7) {
+      titulo = "Paciente com ALTO risco de deterioração clínica";
+      conteudo = "Avaliação de emergência por médico intensivista, com possível transferência do paciente para uma área de cuidados críticos (UTI) "
+      conteudoSubtitle = "☞ Monitoramento contínuo dos sinais vitais <br/> ☞ Avaliação emergencial pela equipe médica ou time de resposta rápida e transferência para cuidados intensivos ou compatíveis/equivalentes"
       color = "#ff1300";
       colorType = "danger";
     }
     setCalculoResultado(resultado);
-    setMessageResultado(message);
+
+    setTituloResultado(titulo);
+    setConteudoResultado(conteudo);
+    setConteudoSubtitleResultado(conteudoSubtitle)
+
     setColorResultado(color);
     setColorType(colorType);
     setOpenDialog(true); // Abre o dialog
@@ -316,7 +347,7 @@ const EscalaNewsApp = () => {
             <img
               src={logo1}
               alt="Logo 1"
-              style={{ height: 80, marginRight: "16px" }}
+              style={{ height: 120, marginRight: "16px" }}
             />
           </Grid>
           <Grid item>
@@ -333,7 +364,7 @@ const EscalaNewsApp = () => {
           }}
         >
           <Typography sx={{ mb: 6 }} variant="h4" align="center" gutterBottom>
-            Escala NEWS-2
+           Calculadora de News
           </Typography>
           {/* Pergunta 1 - Taxa Respiratória */}
           <FormControl fullWidth sx={{ mb: 3 }}>
@@ -825,7 +856,7 @@ const EscalaNewsApp = () => {
                 >
                   <span>111-219</span>
                   <span style={{ color: "#A9A9A9", fontWeight: "400" }}>
-                    +0
+                    0
                   </span>
                 </div>
               </MenuItem>
@@ -981,7 +1012,7 @@ const EscalaNewsApp = () => {
                 >
                   <span>A - Alerta</span>
                   <span style={{ color: "#A9A9A9", fontWeight: "400" }}>
-                    +0
+                    0
                   </span>
                 </div>
               </MenuItem>
@@ -1056,7 +1087,9 @@ const EscalaNewsApp = () => {
               textAlign: "center", // Centraliza o título
             }}
           >
-            <Typography variant="h6">Cálculo NEWS 2 </Typography>
+            <Typography variant="h6"   sx={{
+              fontWeight: "bold",
+            }}>{tituloResultado} </Typography>
           </DialogTitle>
           <DialogContent
             sx={{
@@ -1081,10 +1114,26 @@ const EscalaNewsApp = () => {
                 fontSize: "1.2rem",
                 marginTop: "10px",
               }}
-              color={colorResultado != null ? colorResultado : "#FFFFFF"}
+              // color={colorResultado != null ? colorResultado : "#FFFFFF"}
             >
-              {messageResultado}
+              {conteudoResultado}
             </Typography>
+            <Typography
+              variant="subtitle2"
+              style={{
+                // fontWeight: "bold",
+                // fontSize: "1.2rem",
+                marginTop: "10px",
+                padding:'9px',
+                border: '3px dashed #ccc', 
+  borderRadius: '10px' 
+              }}
+              // color={colorResultado != null ? colorResultado : "#FFFFFF"}
+              dangerouslySetInnerHTML={{ __html: conteudoSubtitleResultado}}
+            />
+              {/* {conteudoSubtitleResultado} */}
+            {/* </Typography> */}
+            
           </DialogContent>
           <DialogActions>
             {" "}
@@ -1104,6 +1153,23 @@ const EscalaNewsApp = () => {
           </DialogActions>
         </Dialog>
       </Box>
+      <Box
+      display="flex"
+      justifyContent="center"
+      alignItems="center"
+      
+      textAlign="center"
+      
+    >
+      <Typography variant="subtitle2" gutterBottom >
+        <span style={{fontWeight:'bold'}}>Fundação Manoel da Silva Almeida –</span><br />
+        <span style={{fontWeight:'bold'}}>UPA TORRÕES – Dulce Sampaio</span><br />
+        Rua Mirabela, nº 30 - Torrões<br />
+        CNPJ: 09.767.633.0008/70<br />
+        Fone: (81) 3184-4441<br />
+        Site: www.hospitalmarialucinda.com.br
+      </Typography>
+    </Box>
     </ThemeProvider>
   );
 };
