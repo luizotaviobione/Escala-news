@@ -91,7 +91,7 @@ const EscalaNewsApp = () => {
 
   const handleUsoOxigenioChange = (e) => {
     const value = e.target.value;
-    console.log(getValorResposta3(e.target.value));
+    // console.log(getValorResposta3(e.target.value));
     setResposta3(value);
     setResposta2(""); // Reseta a resposta da pergunta 2
   };
@@ -255,13 +255,13 @@ const EscalaNewsApp = () => {
       getValorResposta6(resposta6) +
       getValorResposta7(resposta7);
 
-    console.log("valor da soma: " + getValorResposta1(resposta1) + "+" +
-      getValorResposta2(resposta2) + "+" +
-      getValorResposta3(resposta3) + "+" +
-      getValorResposta4(resposta4) + "+" +
-      getValorResposta5(resposta5) + "+" +
-      getValorResposta6(resposta6) + "+" +
-      getValorResposta7(resposta7));
+    // console.log("valor da soma: " + getValorResposta1(resposta1) + "+" +
+    //   getValorResposta2(resposta2) + "+" +
+    //   getValorResposta3(resposta3) + "+" +
+    //   getValorResposta4(resposta4) + "+" +
+    //   getValorResposta5(resposta5) + "+" +
+    //   getValorResposta6(resposta6) + "+" +
+    //   getValorResposta7(resposta7));
     var titulo = "";
     var conteudo = "";
     var conteudoSubtitle = "";
@@ -287,8 +287,21 @@ const EscalaNewsApp = () => {
     //   color = "#ff1300";
     //   colorType = "danger";
     // }
+    if(( getValorResposta1(resposta1) === 3 || getValorResposta2(resposta2) == 3 || getValorResposta3(resposta3) == 3 ||
+      getValorResposta4(resposta4) == 3 ||
+      getValorResposta5(resposta5) == 3 || 
+      getValorResposta6(resposta6) == 3 ||
+      getValorResposta7(resposta7) == 3 ) && resultado == 3  ){
 
-     if (resultado <=4 ) {
+        titulo =
+        "Paciente com Baixo a MODERADO risco de deterioração clínica";
+      conteudo ="Avaliação URGENTE por um clínico qualificado com competência na avaliação de doenças agudas"
+      conteudoSubtitle = "☞ Monitorar, no mínimo, de 1/1 hora <br/> ☞ Revisão urgente por médico para decidir mudança na frequência do monitoramento clínico ou escala de cuidado"
+      color = "orange";
+      colorType = "warning";
+
+      }
+     else if (resultado <=4 ) {
       titulo = "Paciente com BAIXO risco de deterioração clínica";
       conteudo = "Deve ser avaliado por profissional de enfermagem com habilidades para decidir se há necessidade de aumentar a frequência do monitoramento e/ou escalonamento de cuidados clínicos."
       conteudoSubtitle = "☞ Monitorar, no mínimo, a cada 4-6 horas <br/> ☞ Avaliação pelo profissional de enfermagem para decidir mudança na frequência do monitoramento ou escala de cuidado"
@@ -372,7 +385,7 @@ const EscalaNewsApp = () => {
             <Select
               value={resposta1}
               onChange={(e) => {
-                console.log(getValorResposta1(e.target.value));
+                // console.log(getValorResposta1(e.target.value));
                 setResposta1(e.target.value);
               }}
               label="Frequência Respiratória"
@@ -511,7 +524,7 @@ const EscalaNewsApp = () => {
               <Select
                 value={resposta2}
                 onChange={(e) => {
-                  console.log(getValorResposta2(e.target.value));
+                  // console.log(getValorResposta2(e.target.value));
                   setResposta2(e.target.value);
                 }}
                 label="SpO2% - Escala 1"
@@ -586,7 +599,7 @@ const EscalaNewsApp = () => {
               <Select
                 value={resposta2}
                 onChange={(e) => {
-                  console.log(getValorResposta2(e.target.value));
+                  // console.log(getValorResposta2(e.target.value));
                   setResposta2(e.target.value);
                 }}
                 label="SpO2% - Escala 2"
@@ -703,7 +716,7 @@ const EscalaNewsApp = () => {
             <Select
               value={resposta4}
               onChange={(e) => {
-                console.log(getValorResposta4(e.target.value));
+                // console.log(getValorResposta4(e.target.value));
                 setResposta4(e.target.value);
               }}
               label="Temperatura"
@@ -794,7 +807,7 @@ const EscalaNewsApp = () => {
             <Select
               value={resposta5}
               onChange={(e) => {
-                console.log(getValorResposta5(e.target.value));
+                // console.log(getValorResposta5(e.target.value));
                 setResposta5(e.target.value);
               }}
               label="Pressão Arterial Sistólica"
@@ -887,7 +900,7 @@ const EscalaNewsApp = () => {
             <Select
               value={resposta6}
               onChange={(e) => {
-                console.log(getValorResposta6(e.target.value));
+                // console.log(getValorResposta6(e.target.value));
                 setResposta6(e.target.value);
               }}
               label="Pulso(por minuto)"
@@ -992,7 +1005,7 @@ const EscalaNewsApp = () => {
             <Select
               value={resposta7}
               onChange={(e) => {
-                console.log(getValorResposta7(e.target.value));
+                // console.log(getValorResposta7(e.target.value));
                 setResposta7(e.target.value);
               }}
               label="Pontuação AVPU"
