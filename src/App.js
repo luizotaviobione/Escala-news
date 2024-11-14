@@ -294,7 +294,7 @@ const EscalaNewsApp = () => {
       getValorResposta7(resposta7) == 3 ) && resultado == 3  ){
 
         titulo =
-        "Paciente com Baixo a MODERADO risco de deterioração clínica";
+        "Paciente com BAIXO a MODERADO risco de deterioração clínica";
       conteudo ="Avaliação URGENTE por um clínico qualificado com competência na avaliação de doenças agudas"
       conteudoSubtitle = "☞ Monitorar, no mínimo, de 1/1 hora <br/> ☞ Revisão urgente por médico para decidir mudança na frequência do monitoramento clínico ou escala de cuidado"
       color = "orange";
