@@ -291,7 +291,7 @@ const EscalaNewsApp = () => {
       getValorResposta4(resposta4) == 3 ||
       getValorResposta5(resposta5) == 3 || 
       getValorResposta6(resposta6) == 3 ||
-      getValorResposta7(resposta7) == 3 ) && resultado == 3  ){
+      getValorResposta7(resposta7) == 3 ) &&  (resultado == 3 ||  resultado == 4)   ){
 
         titulo =
         "Paciente com BAIXO a MODERADO risco de deterioração clínica";
