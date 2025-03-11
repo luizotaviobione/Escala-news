@@ -24,6 +24,7 @@ import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import WarningAmberIcon from "@mui/icons-material/WarningAmber";
 import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
+import { Analytics } from "@vercel/analytics/react"
 
 // Definindo o tema personalizado com as cores fornecidas
 const theme = createTheme({
