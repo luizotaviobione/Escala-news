@@ -4,11 +4,12 @@ import './index.css';
 import App from './App';
 import reportWebVitals from './reportWebVitals';
 import { Analytics } from '@vercel/analytics/react';
+import Maintenance from './Maintenance';
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
   <React.StrictMode>
-    <App />
+    <Maintenance />
     <Analytics />
   </React.StrictMode>
 );
