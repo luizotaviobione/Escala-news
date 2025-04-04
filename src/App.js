@@ -26,6 +26,8 @@ import ReportGmailerrorredIcon from "@mui/icons-material/ReportGmailerrorred";
 import LocalHospitalIcon from "@mui/icons-material/LocalHospital";
 import { Analytics } from "@vercel/analytics/react"
 
+
+
 // Definindo o tema personalizado com as cores fornecidas
 const theme = createTheme({
   palette: {

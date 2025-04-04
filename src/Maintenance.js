@@ -6,7 +6,9 @@ import {
   CircularProgress
 } from '@mui/material';
 import { makeStyles } from '@mui/styles';
+
 import '@fortawesome/fontawesome-free/css/all.min.css';
+
 
 const useStyles = makeStyles({
   root: {
